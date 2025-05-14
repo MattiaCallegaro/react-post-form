@@ -18,6 +18,15 @@ const TicketForm = () => {
     const handleChange = (e) => {
         // console.log(e.target.value)
         // console.log(e.target.name)
+        console.log(e.target)
+        //destructoring del target per recuperare le proprietà del campo input modificato
+        const { name, value, checked, type } = e.target;
+
+        //imposto la variabile di stato richiamando setFormData
+        setFormData({
+            ...formData,
+            [name]: e.target.type === 'checkbox' ? e.target.checked : e.target.value,
+        })
     };
 
 
@@ -59,28 +68,13 @@ const TicketForm = () => {
                                             id="public"
                                             name="public"
                                             value="pubblica"
-                                            checked={formData.public === "pubblica"}
+                                            checked={formData.public}
                                             onChange={handleChange}
                                         />
                                         <label htmlFor="" className='form-check-label'>
                                             Pubblica
                                         </label>
                                     </div>
-                                    <div>
-                                        <input
-                                            type="checkbox"
-                                            className="form-check-input"
-                                            id="public"
-                                            name="public"
-                                            value="non pubblicare"
-                                            checked={formData.public === "non pubblicare"}
-                                            onChange={handleChange}
-                                        />
-                                        <label htmlFor="" className='form-check-label'>
-                                            Non Pubblicare
-                                        </label>
-                                    </div>
-
 
                                 </div>
                             </div>
