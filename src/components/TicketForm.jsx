@@ -25,8 +25,17 @@ const TicketForm = () => {
         //imposto la variabile di stato richiamando setFormData
         setFormData({
             ...formData,
+            //se il type è una checkbox metto il target su checked altrimenti su value
             [name]: e.target.type === 'checkbox' ? e.target.checked : e.target.value,
         })
+    };
+    //funzione per inviare il form
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        axios.post("https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts", formData).then((resp) => {
+            console.log(resp.data)
+        })
+
     };
 
 
@@ -39,7 +48,7 @@ const TicketForm = () => {
                 </div>
                 <div className="col-12">
                     {/* `Form */}
-                    <form action="" className='border rounded bg-light p-4'>
+                    <form onSubmit={handleSubmit} className='border rounded bg-light p-4'>
                         <div className="row g-3">
                             <div className="col-12">
                                 <label htmlFor="" className='control-label'>Author</label>
