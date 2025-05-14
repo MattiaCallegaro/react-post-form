@@ -3,6 +3,16 @@ import { useState } from 'react'
 import axios from 'axios'
 
 const TicketForm = () => {
+
+    //dichiaro la variabile di stato che racchiude le proprietà in un oggetto
+    const [formData, setFormData] = useState({
+        author: "",
+        title: "",
+        body: "",
+        public: "",
+
+    })
+
     return (
         <div className="container mt-4">
             <div className="row">
