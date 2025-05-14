@@ -5,11 +5,12 @@ import axios from 'axios'
 const TicketForm = () => {
 
     //dichiaro la variabile di stato che racchiude le proprietà in un oggetto
+    //vado a mettere tutti i value
     const [formData, setFormData] = useState({
         author: "",
         title: "",
         body: "",
-        public: "",
+        public: false,
 
     })
 
@@ -25,27 +26,48 @@ const TicketForm = () => {
                         <div className="row g-3">
                             <div className="col-12">
                                 <label htmlFor="" className='control-label'>Author</label>
-                                <input type="text" name='author' className='form-control' placeholder='Author' />
+                                <input type="text" name='author' className='form-control' placeholder='Author' value={formData.author} />
                             </div>
                             <div className="col-12">
                                 <label htmlFor="" className='control-label'>Title</label>
-                                <input type="text" name='title' className='form-control' placeholder='Title' />
+                                <input type="text" name='title' className='form-control' placeholder='Title' value={formData.title} />
                             </div>
                             <div className="col-12">
                                 <label htmlFor="" className='control-label'>Body</label>
-                                <textarea name="body" id="body" className='form-control'>Inserisci testo</textarea>
+                                <textarea name="body" id="body" className='form-control' value={formData.body}>Inserisci testo</textarea>
                             </div>
                             <div className="col-12">
                                 <div className="form-check">
                                     <label className="control-label" htmlFor="">
                                         Rendi il post pubblico
                                     </label>
-                                    <input
-                                        type="checkbox"
-                                        className="form-check-input"
-                                        id="public"
-                                        name="public"
-                                    />
+                                    <div>
+                                        <input
+                                            type="checkbox"
+                                            className="form-check-input"
+                                            id="public"
+                                            name="public"
+                                            value="pubblica"
+                                            checked={formData.public === "pubblica"}
+                                        />
+                                        <label htmlFor="" className='form-check-label'>
+                                            Pubblica
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <input
+                                            type="checkbox"
+                                            className="form-check-input"
+                                            id="public"
+                                            name="public"
+                                            value="non pubblicare"
+                                            checked={formData.public === "non pubblicare"}
+                                        />
+                                        <label htmlFor="" className='form-check-label'>
+                                            Non Pubblicare
+                                        </label>
+                                    </div>
+
 
                                 </div>
                             </div>
