@@ -12,7 +12,15 @@ const TicketForm = () => {
         body: "",
         public: false,
 
-    })
+    });
+
+    //funzione per gestire evento onChange
+    const handleChange = (e) => {
+        // console.log(e.target.value)
+        // console.log(e.target.name)
+    };
+
+
 
     return (
         <div className="container mt-4">
@@ -26,15 +34,18 @@ const TicketForm = () => {
                         <div className="row g-3">
                             <div className="col-12">
                                 <label htmlFor="" className='control-label'>Author</label>
-                                <input type="text" name='author' className='form-control' placeholder='Author' value={formData.author} />
+                                <input type="text" name='author' className='form-control' placeholder='Author' value={formData.author}
+                                    onChange={handleChange} />
                             </div>
                             <div className="col-12">
                                 <label htmlFor="" className='control-label'>Title</label>
-                                <input type="text" name='title' className='form-control' placeholder='Title' value={formData.title} />
+                                <input type="text" name='title' className='form-control' placeholder='Title' value={formData.title}
+                                    onChange={handleChange} />
                             </div>
                             <div className="col-12">
                                 <label htmlFor="" className='control-label'>Body</label>
-                                <textarea name="body" id="body" className='form-control' value={formData.body}>Inserisci testo</textarea>
+                                <textarea name="body" id="body" className='form-control' value={formData.body}
+                                    onChange={handleChange}>Inserisci testo</textarea>
                             </div>
                             <div className="col-12">
                                 <div className="form-check">
@@ -49,6 +60,7 @@ const TicketForm = () => {
                                             name="public"
                                             value="pubblica"
                                             checked={formData.public === "pubblica"}
+                                            onChange={handleChange}
                                         />
                                         <label htmlFor="" className='form-check-label'>
                                             Pubblica
@@ -62,6 +74,7 @@ const TicketForm = () => {
                                             name="public"
                                             value="non pubblicare"
                                             checked={formData.public === "non pubblicare"}
+                                            onChange={handleChange}
                                         />
                                         <label htmlFor="" className='form-check-label'>
                                             Non Pubblicare
