@@ -5,7 +5,7 @@ import axios from 'axios'
 const TicketForm = () => {
 
     //dichiaro la variabile di stato che racchiude le proprietà in un oggetto
-    //vado a mettere tutti i value
+    //vado a mettere tutti i value per controllare gli input
     const [formData, setFormData] = useState({
         author: "",
         title: "",
@@ -26,7 +26,7 @@ const TicketForm = () => {
         setFormData({
             ...formData,
             //se il type è una checkbox metto il target su checked altrimenti su value
-            [name]: e.target.type === 'checkbox' ? e.target.checked : e.target.value,
+            [name]: type === 'checkbox' ? checked : value,
         })
     };
     //funzione per inviare il form
